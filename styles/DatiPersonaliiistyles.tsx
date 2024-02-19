@@ -133,7 +133,7 @@ export const globalStyles = StyleSheet.create({
     borderRadius: 8,
     gap: 10,
     backgroundColor: '#3C75FB',
-    marginTop: 260,
+    marginTop: 230,
   },
   modi: {
     width: 300,

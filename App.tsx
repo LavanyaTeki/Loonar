@@ -9,19 +9,13 @@ import {AuthProvider} from './Auth/AuthContext';
 
 // Screens
 import {HomeScreen} from './screens/HomeScreen';
-import {ProfileScreen} from './screens/ProfileScreen';
 import InstallingScreen from './screens/InstallingScreen';
 import WalletScreen from './screens/WalletScreen';
 import LoginScreen from './screens/LoginScreen';
 import NotificationScreen from './screens/NotificationScreen';
-import DatiPersonali from './screens/DatiPersonali';
-import DatiPersonaliii from './screens/DatiPersonaliii';
-import INQUADRAQRCODE from './screens/INQUADRAQRCODE';
-import Preferenze from './screens/Preferenze';
-import Dati from './screens/Dati';
-import Preferenzeone from './screens/Preferenzeone';
-import Preferenzetwo from './screens/Preferenzetwo';
-import Preferenzethree from './screens/Preferenzethree';
+import InquadraCode from './screens/InquadraCode';
+
+import {CustomeNavigation} from './CustomeNavigation';
 
 type TabParamList = {
   Home: undefined;
@@ -35,14 +29,19 @@ const Tab = createBottomTabNavigator<TabParamList>();
 
 const AppTabs: React.FC = () => (
   <Tab.Navigator
-    tabBarOptions={{
-      style: {
-        width: 345, // Set to Fill (345px)
-        height: 68, // Fixed (20px)
-        padding: 0, // 0px
-        paddingHorizontal: 24, // 24px
+    screenOptions={{
+      tabBarInactiveBackgroundColor: '#EAEDF4',
+      tabBarActiveBackgroundColor: '#ffffff',
+      tabBarShowLabel: false,
+      tabBarLabelStyle: {
         justifyContent: 'space-between',
-        backgroundColor: '#EAEDF4', // Background color
+        width: 345,
+        height: 20,
+        padding: 0,
+        paddingTop: 0,
+        paddingRight: 14,
+        paddingBottom: 0,
+        paddingLeft: 14,
       },
     }}>
     <Tab.Screen
@@ -56,12 +55,15 @@ const AppTabs: React.FC = () => (
             size={size}
             color={color}
             style={{
-              width: 20,
-              height: 19,
               fontWeight: '900',
               fontSize: 22,
               lineHeight: 20,
               textAlign: 'center',
+              width: 44,
+              height: 44,
+              padding: 12,
+              borderRadius: 4,
+              gap: 10,
 
               color: '#2A3DAA',
             }}
@@ -80,12 +82,15 @@ const AppTabs: React.FC = () => (
             size={size}
             color={color}
             style={{
-              width: 20,
-              height: 19,
               fontWeight: '900',
-              fontSize: 20,
+              fontSize: 22,
               lineHeight: 20,
               textAlign: 'center',
+              width: 44,
+              height: 42,
+              padding: 12,
+              borderRadius: 4,
+              gap: 10,
 
               color: '#2A3DAA',
             }}
@@ -104,12 +109,15 @@ const AppTabs: React.FC = () => (
             size={size}
             color={color}
             style={{
-              width: 20,
-              height: 19,
               fontWeight: '900',
-              fontSize: 20,
+              fontSize: 22,
               lineHeight: 20,
               textAlign: 'center',
+              width: 44,
+              height: 44,
+              padding: 12,
+              borderRadius: 4,
+              gap: 10,
 
               color: '#2A3DAA',
             }}
@@ -119,7 +127,7 @@ const AppTabs: React.FC = () => (
     />
     <Tab.Screen
       name="Profile"
-      component={ProfileScreen}
+      component={CustomeNavigation}
       options={{
         headerShown: false,
         tabBarIcon: ({color, size}) => (
@@ -128,12 +136,15 @@ const AppTabs: React.FC = () => (
             size={size}
             color={color}
             style={{
-              width: 20,
-              height: 19,
               fontWeight: '900',
               fontSize: 22,
               lineHeight: 20,
               textAlign: 'center',
+              width: 44,
+              height: 44,
+              padding: 12,
+              borderRadius: 4,
+              gap: 10,
 
               color: '#2A3DAA',
             }}
@@ -161,44 +172,10 @@ const AppStack: React.FC = () => (
       component={NotificationScreen}
       options={{headerShown: false}}
     />
-    <Stack.Screen
-      name="Datipersonali"
-      component={DatiPersonali}
-      options={{headerShown: false}}
-    />
-    <Stack.Screen
-      name="Datipersonaliii"
-      component={DatiPersonaliii}
-      options={{headerShown: false}}
-    />
+
     <Stack.Screen
       name="Inquadra"
-      component={INQUADRAQRCODE}
-      options={{headerShown: false}}
-    />
-
-    <Stack.Screen
-      name="Preferenze"
-      component={Preferenze}
-      options={{headerShown: false}}
-    />
-    <Stack.Screen name="Dati" component={Dati} options={{headerShown: false}} />
-
-    <Stack.Screen
-      name="Preferenzeone"
-      component={Preferenzeone}
-      options={{headerShown: false}}
-    />
-
-    <Stack.Screen
-      name="Preferenzetwo"
-      component={Preferenzetwo}
-      options={{headerShown: false}}
-    />
-
-    <Stack.Screen
-      name="Preferenzethree"
-      component={Preferenzethree}
+      component={InquadraCode}
       options={{headerShown: false}}
     />
   </Stack.Navigator>

@@ -1,4 +1,8 @@
-import {StyleSheet} from 'react-native';
+import {StyleSheet, Dimensions} from 'react-native';
+
+// Get the dimensions of the screen
+const screenWidth = Dimensions.get('window').width;
+const screenHeight = Dimensions.get('window').height;
 
 export const globalStyles = StyleSheet.create({
   container: {
@@ -20,6 +24,7 @@ export const globalStyles = StyleSheet.create({
     shadowRadius: 3.84,
     elevation: 5,
   },
+
   heading: {
     fontSize: 24,
     fontWeight: '300',
@@ -36,6 +41,7 @@ export const globalStyles = StyleSheet.create({
     textAlign: 'justify',
     marginLeft: 15,
   },
+
   input: {
     borderWidth: 1,
     borderRadius: 10,
@@ -47,6 +53,7 @@ export const globalStyles = StyleSheet.create({
     width: 273,
     marginLeft: 10,
   },
+
   button: {
     width: 273,
     height: 52,

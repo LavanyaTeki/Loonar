@@ -2,6 +2,7 @@ import React from 'react';
 import {View, Text, StyleSheet, Image, TextInput} from 'react-native';
 import FontAwesome6 from 'react-native-vector-icons/FontAwesome6';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
 import Preferenze from './Preferenze';
 import Dati from './Dati';
@@ -106,7 +107,7 @@ export const ProfileScreen = () => {
                   <Text style={globalStyles.natalias}>
                     natalia@myvirtual.my
                   </Text>
-                  <FontAwesome5 name="edit" style={globalStyles.editicon} />
+                  <FontAwesome name="edit" style={globalStyles.editicon} />
                 </View>
               </View>
             </View>
@@ -120,7 +121,7 @@ export const ProfileScreen = () => {
                     style={{gap: 10, lineHeight: 22}}
                   />
                   <Text style={globalStyles.dots}>●●●●●●●●</Text>
-                  <FontAwesome5 name="edit" style={globalStyles.editicons} />
+                  <FontAwesome name="edit" style={globalStyles.editicons} />
                 </View>
               </View>
             </View>

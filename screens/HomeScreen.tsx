@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, StyleSheet, Image} from 'react-native';
+import {View, Text, Image, TouchableOpacity} from 'react-native';
 import FontAwesome6 from 'react-native-vector-icons/FontAwesome6';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
@@ -72,7 +72,7 @@ export const HomeScreen = () => {
       </View>
       <View style={globalStyles.bodys}>
         <View style={globalStyles.container}>
-          <View style={globalStyles.inputgroup}>
+          {/* <View style={globalStyles.inputgroup}>
             <View style={globalStyles.inputelement}>
               <View style={globalStyles.inputslot}>
                 <FontAwesome name="search" style={globalStyles.search} />
@@ -80,34 +80,35 @@ export const HomeScreen = () => {
                 <FontAwesome5 name="arrow-right" style={globalStyles.arrow} />
               </View>
             </View>
-          </View>
+          </View> */}
+
           <View style={globalStyles.cardscontainer}>
             <View style={globalStyles.cardframe}>
-              <View style={globalStyles.cardone}>
-                <Image source={image} style={globalStyles.images} />
-                <Text style={globalStyles.code} onPress={handleQrcode}>
-                  INQUADRA QR CODE
-                </Text>
-              </View>
-              <View style={globalStyles.cardtwo}>
-                <View style={globalStyles.menuitem}>
-                  <Image source={icons} style={globalStyles.icons} />
+              <TouchableOpacity onPress={handleQrcode}>
+                <View style={globalStyles.cardone}>
+                  <Image source={image} style={globalStyles.images} />
+                  <Text style={globalStyles.code}>INQUADRA QR CODE</Text>
                 </View>
-                <Text style={globalStyles.my} onPress={handleWalet}>
-                  My Wallet
-                </Text>
-              </View>
+              </TouchableOpacity>
+
+              <TouchableOpacity onPress={handleWalet}>
+                <View style={globalStyles.cardtwo}>
+                  <View style={globalStyles.menuitem}>
+                    <Image source={icons} style={globalStyles.icons} />
+                  </View>
+
+                  <Text style={globalStyles.my}>My Wallet</Text>
+                </View>
+              </TouchableOpacity>
             </View>
-            <View style={globalStyles.cardthree}>
-              <View style={globalStyles.illustration}>
-                <Image source={install} style={globalStyles.install} />
-                <Text
-                  style={globalStyles.installion}
-                  onPress={handleinstalling}>
-                  Istallazioni
-                </Text>
+            <TouchableOpacity onPress={handleinstalling}>
+              <View style={globalStyles.cardthree}>
+                <View style={globalStyles.illustration}>
+                  <Image source={install} style={globalStyles.install} />
+                  <Text style={globalStyles.installion}>Istallazioni</Text>
+                </View>
               </View>
-            </View>
+            </TouchableOpacity>
           </View>
         </View>
       </View>

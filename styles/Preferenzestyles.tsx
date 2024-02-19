@@ -295,7 +295,7 @@ export const globalStyles = StyleSheet.create({
     textAlign: 'right',
     width: 16,
     height: 16,
-    left: 209,
+    left: 200,
     color: '#2A3DAA',
   },
   editicons: {
@@ -305,7 +305,7 @@ export const globalStyles = StyleSheet.create({
     textAlign: 'right',
     width: 16,
     height: 16,
-    left: 140,
+    left: 132,
     color: '#2A3DAA',
   },
 });

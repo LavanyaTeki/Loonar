@@ -265,7 +265,7 @@ export const globalStyles = StyleSheet.create({
     //border: 0.25,
     gap: 16,
     backgroundColor: '#FFFFFF',
-    bottom: 60,
+    bottom: 40,
   },
   illustration: {
     width: 92,

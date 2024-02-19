@@ -1,7 +1,15 @@
 import React from 'react';
-import {View, Text, StyleSheet, Image, TextInput} from 'react-native';
+import {
+  View,
+  Text,
+  StyleSheet,
+  Image,
+  TextInput,
+  PixelRatio,
+} from 'react-native'; // Import PixelRatio
 import FontAwesome6 from 'react-native-vector-icons/FontAwesome6';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import DatiPersonali from './DatiPersonali';
 import DatiPersonaliii from './DatiPersonaliii';
 
@@ -95,8 +103,11 @@ const Dati = () => {
                 <View style={globalStyles.personalframe}>
                   <FontAwesome5
                     name="user-circle"
-                    size={17}
-                    style={{gap: 10, lineHeight: 22}}
+                    size={17 / PixelRatio.getFontScale()} // Adjust size based on PixelRatio
+                    style={{
+                      gap: 10 / PixelRatio.getFontScale(),
+                      lineHeight: 22,
+                    }}
                   />
                   <Text style={globalStyles.natalia}>Natalia Roitman</Text>
                 </View>
@@ -108,13 +119,16 @@ const Dati = () => {
                 <View style={globalStyles.personalframe}>
                   <FontAwesome5
                     name="envelope"
-                    size={17}
-                    style={{gap: 10, lineHeight: 22}}
+                    size={17 / PixelRatio.getFontScale()} // Adjust size based on PixelRatio
+                    style={{
+                      gap: 10 / PixelRatio.getFontScale(),
+                      lineHeight: 22,
+                    }}
                   />
                   <Text style={globalStyles.natalias}>
                     natalia@myvirtual.my
                   </Text>
-                  <FontAwesome5
+                  <FontAwesome
                     name="edit"
                     onPress={handleEditicon}
                     style={globalStyles.editicon}
@@ -128,11 +142,14 @@ const Dati = () => {
                 <View style={globalStyles.personalframe}>
                   <FontAwesome5
                     name="lock"
-                    size={17}
-                    style={{gap: 10, lineHeight: 22}}
+                    size={17 / PixelRatio.getFontScale()} // Adjust size based on PixelRatio
+                    style={{
+                      gap: 10 / PixelRatio.getFontScale(),
+                      lineHeight: 22,
+                    }}
                   />
                   <Text style={globalStyles.dots}>●●●●●●●●</Text>
-                  <FontAwesome5
+                  <FontAwesome
                     name="edit"
                     onPress={handleEditicons}
                     style={globalStyles.editicons}

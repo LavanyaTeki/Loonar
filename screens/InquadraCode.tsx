@@ -1,18 +1,24 @@
-import {StyleSheet, Text, View, Image} from 'react-native';
-import React from 'react';
-import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
-import FontAwesome6 from 'react-native-vector-icons/FontAwesome6';
+import React, {useState} from 'react';
+import {View, Image, StyleSheet, Text, TouchableOpacity} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import QRCodeScanner from './QRCodeScanner';
 
 const logo = require('../assets/LOGO_loonar.png');
-const Vector29 = require('../assets/Vector29.png');
-const Vector28 = require('../assets/Vector28.png');
+const Vector = require('../assets/Vector.png');
 
 const INQUADRAQRCODE = () => {
   const navigation = useNavigation();
+  const [showScanner, setShowScanner] = useState(false);
+
   const handleClose = () => {
     navigation.goBack();
   };
+
+  const handleScanButton = () => {
+    setShowScanner(true);
+  };
+
   return (
     <View>
       <View style={styles.header}>
@@ -27,18 +33,41 @@ const INQUADRAQRCODE = () => {
           />
         </View>
       </View>
+      {/* <View style={styles.body}>
+        {!showScanner ? (
+          <View>
+            <Text style={styles.QR}>
+              INQUADRA IL QR CODE PER ACCEDERE RAPIDAMENTE
+            </Text>
+            <Button title="Scan QR Code" onPress={handleScanButton} />
+          </View>
+        ) : (
+          <QRCodeScanner onClose={() => setShowScanner(false)} />
+        )}
+      </View> */}
       <View style={styles.body}>
         <View style={styles.welcome}>
           <View style={styles.titles}>
             <Text style={styles.QR}>
-              INQUADRA IL QR CODE PER ACCEDERE RAPIDAMENTE
+              INQUADRA IL QR CODEPER ACCEDERE RAPIDAMENTE
             </Text>
           </View>
-          <View style={styles.illustration}>
-            <View style={styles.qrcode}>
-              <Image style={styles.vector1} source={Vector29} />
-              <Image style={styles.vector2} source={Vector28} />
+          {!showScanner ? (
+            <View>
+              <TouchableOpacity onPress={handleScanButton}>
+                <Image source={Vector} style={styles.vectorimage} />
+              </TouchableOpacity>
             </View>
+          ) : (
+            <QRCodeScanner onClose={() => setShowScanner(false)} />
+          )}
+          <View style={styles.Disclaimer}>
+            <Text style={styles.dolor}>
+              Lorem ipsum dolor sit amet consectetur. Cursus tempus vitae lorem
+              scelerisque. Eu odio sed lectus augue elementum elementum. Nunc
+              enim ac sed commodo aliquam. Pharetra et sit et facilisi. Diam
+              fringilla nullam a fringilla phasellus auctor orci netus.
+            </Text>
           </View>
         </View>
       </View>
@@ -132,21 +161,30 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     flexDirection: 'row',
   },
-  vector1: {
-    width: 26.66,
-    height: 26.66,
-    top: 109.52,
-    left: 26.66,
-    borderWidth: 4,
-    transform: [{rotate: '-180deg'}],
-    //color: '#798294',
+  vectorimage: {
+    width: 120.21,
+    height: 120.21,
+    top: 50,
+    left: 120.38,
   },
-  vector2: {
-    width: 26.66,
-    height: 26.66,
-    top: 382.48,
-    left: 26.66,
-    borderWidth: 4,
-    transform: [{rotate: '-180deg'}],
+
+  Disclaimer: {
+    width: 359.51,
+    height: 108,
+    paddingTop: 180,
+    paddingRight: 24,
+    paddingLeft: 24,
+    gap: 10,
+  },
+  dolor: {
+    width: 311.51,
+    height: 108,
+    fontFamily: 'Caros',
+    fontSize: 12,
+    fontWeight: '400',
+    lineHeight: 18,
+    letterSpacing: 0.04,
+    textAlign: 'center',
+    color: '#7F7F7F',
   },
 });

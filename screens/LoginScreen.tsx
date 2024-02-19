@@ -6,6 +6,7 @@ import {
   TextInput,
   TouchableHighlight,
   GestureResponderEvent,
+  PixelRatio,
 } from 'react-native';
 import {useFormik} from 'formik';
 import * as Yup from 'yup';
@@ -44,8 +45,11 @@ const LoginScreen: React.FC<LoginScreenProps> = ({navigation}) => {
     },
   });
 
+  // Convert pixel values to DIP using PixelRatio
+  const pixelValue = (value: number) => PixelRatio.roundToNearestPixel(value);
+
   return (
-    <View style={globalStyles.container}>
+    <View style={[globalStyles.container, {padding: pixelValue(10)}]}>
       <View style={globalStyles.cardContainer}>
         <Text style={globalStyles.heading}>Benvenuto!</Text>
 
@@ -54,8 +58,9 @@ const LoginScreen: React.FC<LoginScreenProps> = ({navigation}) => {
         <TextInput
           style={[
             globalStyles.input,
-            //formik.errors.username &&
-            formik.touched.username && globalStyles.errorInput,
+            formik.errors.username && formik.touched.username
+              ? globalStyles.errorInput
+              : null,
           ]}
           placeholder="Inserisci il tuo nome utente"
           onChangeText={formik.handleChange('username')}
@@ -67,7 +72,7 @@ const LoginScreen: React.FC<LoginScreenProps> = ({navigation}) => {
           <Text style={globalStyles.errorText}>{formik.errors.username}</Text>
         ) : null}
 
-        <View style={{marginVertical: 20}}>
+        <View style={{marginVertical: pixelValue(20)}}>
           <View style={globalStyles.passwordContainer}>
             <Text style={globalStyles.password}>Password</Text>
 
@@ -89,8 +94,9 @@ const LoginScreen: React.FC<LoginScreenProps> = ({navigation}) => {
           <TextInput
             style={[
               globalStyles.input,
-              //formik.errors.password &&
-              formik.touched.password && globalStyles.errorInput,
+              formik.errors.password && formik.touched.password
+                ? globalStyles.errorInput
+                : null,
             ]}
             placeholder="Inserisci la password"
             onChangeText={formik.handleChange('password')}
@@ -98,13 +104,18 @@ const LoginScreen: React.FC<LoginScreenProps> = ({navigation}) => {
             value={formik.values.password}
             secureTextEntry={formik.values.hidePassword}
           />
+
           {formik.errors.password && formik.touched.password ? (
             <Text style={globalStyles.errorText}>{formik.errors.password}</Text>
           ) : null}
         </View>
+
         <View>
           <TouchableHighlight
-            onPress={formik.handleSubmit}
+            onPress={
+              (event: GestureResponderEvent) =>
+                formik.handleSubmit(event as any) // Cast event as any to resolve the type issue
+            }
             style={globalStyles.button}
             underlayColor="#4169E1">
             <Text style={globalStyles.buttonText}>ACCEDI</Text>

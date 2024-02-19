@@ -2,6 +2,7 @@ import {View, Text, StyleSheet, Image} from 'react-native';
 import React from 'react';
 import FontAwesome6 from 'react-native-vector-icons/FontAwesome6';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import Fontisto from 'react-native-vector-icons/Fontisto';
 import Dati from './Dati';
 
@@ -99,7 +100,7 @@ const Preferenze = () => {
                     style={{gap: 10, lineHeight: 24}}
                   />
                   <Text style={globalStyles.attiva}>Attiva</Text>
-                  <FontAwesome5
+                  <FontAwesome
                     name="edit"
                     onPress={handlePreferenzeone}
                     style={globalStyles.editicon}
@@ -115,7 +116,7 @@ const Preferenze = () => {
                 </Text>
                 <View style={globalStyles.personalframe}>
                   <Text style={globalStyles.natalias}>Non Attiva</Text>
-                  <FontAwesome5
+                  <FontAwesome
                     name="edit"
                     onPress={handlePreferenzetwo}
                     style={globalStyles.editsicon}
@@ -133,7 +134,7 @@ const Preferenze = () => {
                     style={{gap: 10, lineHeight: 22}}
                   />
                   <Text style={globalStyles.dots}>Italiano</Text>
-                  <FontAwesome5
+                  <FontAwesome
                     name="edit"
                     onPress={handlePreferenzethree}
                     style={globalStyles.editicons}
